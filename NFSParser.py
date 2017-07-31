@@ -11,7 +11,7 @@ from argparse import ArgumentParser
 import re
 from netaddr import IPNetwork
 
-ver = "0.2017.7.30"
+ver = "0.2017.7.31"
 
 print("""
      __  ___  __    ___
@@ -37,7 +37,6 @@ def hostConnect(ip, port):
     host = ip
     sd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sd.settimeout(2)
-    print "[*] Attempting to connect to " + host
     sd.connect((host, port))
     nfsmount(host)
     sd.close()
@@ -120,7 +119,7 @@ def ssnSearch(path, name):
 def main():
     IPAdd = args.ip
     IPTextFile = args.IP
-    port = 111
+    port = 2049
     if IPAdd:
         portScan(port, IPAdd)
     elif IPTextFile:
